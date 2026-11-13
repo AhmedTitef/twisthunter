@@ -1,0 +1,38 @@
+:root{
+  --ink:#0B0F0E;--panel:#121816;--border:#3E4A46;--text:#F2F4F1;--text2:#A7B1AC;--text3:#828D88;
+  --sign:#FFC72C;--sign-ink:#141414;--guide:#00653B;
+  --type:'Overpass','Highway Gothic','Helvetica Neue',Helvetica,Arial,sans-serif;
+  color-scheme:dark;
+}
+@media (prefers-color-scheme:light){
+  :root{--ink:#F4F3EE;--panel:#FFFFFF;--border:#CFCBC0;--text:#141414;--text2:#4E4B44;--text3:#6E6B63;color-scheme:light}
+}
+*,*::before,*::after{box-sizing:border-box}
+html{background:var(--ink);-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{
+  margin:0;min-height:100vh;font-family:var(--type);font-size:1.0625rem;line-height:1.6;color:var(--text);
+  background:var(--ink);
+  /* a centre line down the left edge, the one thing that says road */
+  background-image:linear-gradient(var(--sign) 0 60%,transparent 60% 100%);background-size:4px 56px;background-repeat:repeat-y;
+  background-position:max(6px,calc(50% - 360px)) 0;
+  -webkit-font-smoothing:antialiased;
+}
+::selection{background:var(--sign);color:var(--sign-ink)}
+a{color:var(--text);text-decoration-color:var(--sign);text-decoration-thickness:2px;text-underline-offset:.2em}
+a:hover{color:var(--sign)}
+:focus-visible{outline:3px solid var(--sign);outline-offset:3px}
+main{max-width:640px;margin:0 auto;padding-block:clamp(32px,8vw,88px) 64px;
+  padding-left:max(28px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+.mark{display:flex;align-items:center;gap:.7rem;text-decoration:none;font-weight:900;font-size:1rem;letter-spacing:.01em}
+.sign{width:34px;height:34px;flex:none}
+h1{font-weight:900;font-size:clamp(2.4rem,1.6rem + 4vw,3.6rem);line-height:1;margin:2.4rem 0 1rem;text-wrap:balance}
+h2{font-weight:800;font-size:1.2rem;margin:2.2rem 0 .5rem}
+p,li{max-width:64ch;color:var(--text2)}
+p strong,li strong{color:var(--text)}
+ul{padding-left:1.1rem}
+li{margin:.35rem 0}
+.lede{font-size:1.2rem;color:var(--text)}
+.box{border:1px solid var(--border);background:var(--panel);border-radius:10px;padding:16px 18px;margin:1.2rem 0}
+.contact{font-weight:800;font-size:1.15rem;color:var(--text);word-break:break-all}
+footer{margin-top:3rem;padding-top:1rem;border-top:1px solid var(--border);font-size:.9rem;color:var(--text3)}
+footer a{color:var(--text3)}
